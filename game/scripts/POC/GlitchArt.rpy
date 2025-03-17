@@ -22,14 +22,15 @@ label glitch_art_1_6:
     
     menu:
         "Is het niet de chaos van de werkjes dat ze bij elkaar laat horen?":
-            call glitch_art_1_6_a
+            call glitch_art_1_6_a from _call_glitch_art_1_6_a
         "Ja, nu je het zegt… Je heb mogelijks wel gelijk.":
-            call glitch_art_1_6_b
+            call glitch_art_1_6_b from _call_glitch_art_1_6_b
 
     return
 
 label glitch_art_1_6_a:
-    show lena casual disgusted with dissolve
+    show lena casual disgusted 
+    with dissolve
 
     lena "Chaos"
     
@@ -59,7 +60,8 @@ label glitch_art_1_6_a:
 
     menu:
         "Fouten maken is mensenlijk.":
-            show lena casual idle with dissolve
+            show lena casual idle 
+            with dissolve
 
             lena "Mogelijks. Als het gaat om de computer glitch en als dat het meer menselijk maakt kan ik het wel een beetje zien."
             speler "En als het toch niet de bedoeling is? Dat een computer menselijk lijkt?"
@@ -71,7 +73,8 @@ label glitch_art_1_6_a:
             "Ik kijk nog eventjes verder naar het werk terwijl het blonde meisje rustig verder wandelt."
         
         "Wat een dom concept.":
-            show lena casual idle with dissolve
+            show lena casual idle 
+            with dissolve
 
             lena """
             Akkoord. 
@@ -86,9 +89,11 @@ label glitch_art_1_6_a:
 
     # continue after menu
     hide lena with dissolve
+    return
 
 label glitch_art_1_6_b:
-    show lena casual idle with dissolve
+    show lena casual idle 
+    with dissolve
 
     lena "De 2 werkjes rechts kan je tegen elkaar schuiven en dan is het percies 1 foto."
 
@@ -134,3 +139,5 @@ label glitch_art_1_6_b:
 
     "Ik kijk rustig verder naar het werk terwijl het meisje verder wandelt door de gang."
     speler "Glitch art... Het is toch wel iets anders."
+
+    return
