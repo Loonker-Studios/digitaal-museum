@@ -25,7 +25,7 @@ label monogroom:
     valerie "[sasha.name], het maakt niet uit wat jij of [natalie.name] ziet. Ik vroeg je enkel wat je er van vindt."
     "Zo te zien zijn deze meisjes discussie aan het voeren over wat je er kan zien."
 
-    scene bg poc rgb at Transform(
+    scene bg poc rgb front at Transform(
         zoom=1.2,
         yalign=0.5,
         xalign=0.0
@@ -33,9 +33,11 @@ label monogroom:
     with fade
     
     # Pan from left to right
-    show bg poc rgb at pan_zoom  # Apply the transformation
+    show bg poc rgb front at pan_zoom  # Apply the transformation
 
-    "Ik laat mijn ogen glijden over de 3 metale platen."
+    pause 5.0
+
+    # "Ik laat mijn ogen glijden over de 3 metale platen."
 
     scene bg poc rgb with fade
 
@@ -148,6 +150,9 @@ label monogroom:
     with moveoutright
 
     "De andere meisjes wandelen nu ook verder. Nu die weg zijn kan ik ook wat dichter gaan staan."
+
+    scene bg poc rgb close-up 
+    with dissolve
 
     speler "Waar zijn die bergen?"
 
