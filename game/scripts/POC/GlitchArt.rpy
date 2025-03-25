@@ -6,7 +6,7 @@ label glitch_art_1_6:
     speler """
     Glitch art?
 
-    Wat moet ik me hier mee voorstellen?
+    Wat moet ik mij hier nu mee voorstellen?
     """
 
     show lena casual glaring at right
