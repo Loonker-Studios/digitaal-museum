@@ -6,7 +6,7 @@ label glitch_art_1_6:
     speler """
     Glitch art?
 
-    Wat moet ik me hier mee voorstellen?
+    Wat moet ik mij bij voorstellen?
     """
 
     show lena casual glaring at right
@@ -14,7 +14,7 @@ label glitch_art_1_6:
 
     lena "Wat een rommeltje is me dat."
     speler "Oh ja? Waarom vind je dat?"
-    lena "Kijk nu toch, het zijn 6 fotos die niets met elkaar te maken hebben."
+    lena "Kijk nu toch, het zijn 6 foto's die niets met elkaar te maken hebben."
 
     show lena casual idle with dissolve
 
@@ -23,7 +23,7 @@ label glitch_art_1_6:
     menu:
         "Is het niet de chaos van de werkjes dat ze bij elkaar laat horen?":
             call glitch_art_1_6_a from _call_glitch_art_1_6_a
-        "Ja, nu je het zegt… Je heb mogelijks wel gelijk.":
+        "Ja, nu je het zegt... Je heb mogelijks wel gelijk.":
             call glitch_art_1_6_b from _call_glitch_art_1_6_b
 
     return
@@ -47,7 +47,7 @@ label glitch_art_1_6_a:
 
     show lena casual disgusted with dissolve
 
-    lena "Het lijkt me meer dat de artist zijn brein aan het flippen was en hij of zij dit werk heeft uitgespugd op papier."
+    lena "Het lijkt me meer dat de artiest zijn brein aan het flippen was en hij of zij dit werk heeft uitgespuugd op papier."
     speler "De titel bevat het woord \"Glitch\", mogelijks slaagt het op een computer glitch?"
     
     show lena casual glaring with dissolve
@@ -63,7 +63,7 @@ label glitch_art_1_6_a:
             show lena casual idle 
             with dissolve
 
-            lena "Mogelijks. Als het gaat om de computer glitch en als dat het meer menselijk maakt kan ik het wel een beetje zien."
+            lena "Mogelijks. Als het gaat om een computer glitch en als dat het meer menselijk maakt kan ik het wel een beetje zien."
             speler "En als het toch niet de bedoeling is? Dat een computer menselijk lijkt?"
             lena """
             Dan...
@@ -95,7 +95,7 @@ label glitch_art_1_6_b:
     show lena casual idle 
     with dissolve
 
-    lena "De 2 werkjes rechts kan je tegen elkaar schuiven en dan is het percies 1 foto."
+    lena "De 2 werkjes rechts kan je tegen elkaar schuiven en dan is het precies 1 foto."
 
     show lena casual disgusted with dissolve
 
@@ -120,7 +120,7 @@ label glitch_art_1_6_b:
 
     Naar mijn mening is dit maar niets. Maar ik heb al anderen mensen hier over spreken.
 
-    Voor sommige stelt dit werk de "eenzaamheid van de moderne tiener" voor. Persoonlijk vind ik dat wat belachelijk.
+    Voor sommige stelt dit werk de {i}"eenzaamheid van de moderne tiener"{/i} voor. Persoonlijk vind ik dat wat belachelijk.
     """
     speler "Maar?"
     lena """
