@@ -59,7 +59,7 @@ label glitch_art_1_6_a:
     """
 
     menu:
-        "Omdat fouten maken mensenlijk is?":
+        "Fouten maken is mensenlijk.":
             show lena casual idle 
             with dissolve
 
