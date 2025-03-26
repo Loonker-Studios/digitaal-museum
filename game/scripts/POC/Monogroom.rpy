@@ -10,7 +10,7 @@ label monogroom:
     show sasha at darken
     with dissolve
 
-    natalie "Nee, dat is een slechte Mickey Mouse."
+    natalie "Nee, het is een slechte Mickey Mouse."
     
     show sasha casual thinking at spotlight
     show natalie at darken
@@ -37,7 +37,7 @@ label monogroom:
 
     pause 5.0
 
-    # "Ik laat mijn ogen glijden over de 3 metale platen."
+    # "Ik laat mijn ogen glijden over de 3 metalen platen."
 
     scene bg poc rgb with fade
 
@@ -69,7 +69,7 @@ label monogroom:
     show valerie casual idle at left
     with dissolve
 
-    valerie "Snap ik, het zorgt ervoor dat het toch niet èèn tonig aan voelt."
+    valerie "Snap ik, het zorgt ervoor dat het toch niet eentonig aan voelt."
 
     show valerie at darken
     show natalie at spotlight
@@ -135,7 +135,7 @@ label monogroom:
     pause .5
     show sasha casual happy waku-waku with dissolve
 
-    sasha "Hey, kom kijken. Deze fotos zijn ook wel tof. Al die kleuren."
+    sasha "Hey, kom kijken. Deze foto's zijn ook wel tof. Al die kleuren."
 
     hide sasha with moveoutright
 
