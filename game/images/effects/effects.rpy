@@ -76,3 +76,30 @@ screen black_bars():
 
     add "top_black_bar" xpos 0 ypos 0 xsize config.screen_width ysize bar_height
     add "bottom_black_bar" xpos 0 ypos (config.screen_height- bar_height) xsize config.screen_width ysize bar_height
+
+image wall_glitch:
+    im.Alpha("images/effects/wall_glitch/wall_glitch_1.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_3.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_8.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_5.png", 0.8) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_2.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_4.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_8.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_6.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_5.png", .8) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_7.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_2.png", 1) with Dissolve(0.2)
+    0.09
+    im.Alpha("images/effects/wall_glitch/wall_glitch_8.png", 1) with Dissolve(0.2)
+    0.09
+    repeat

@@ -13,6 +13,7 @@ define speler = Character("Bezoeker")
 # The game starts here.
 
 label start:
-    jump monogroom
+    # jump monogroom
+    jump test
 
     return

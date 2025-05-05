@@ -152,6 +152,17 @@ define config.save_directory = "digitaalmuseum-1741014784"
 
 define config.window_icon = "gui/window_icon.png"
 
+## Layers
+##########################################################
+##
+## Configure extra layers
+### bottom -> top
+define config.layers = ['master',       # contains the background art, sprite art, ... (any scene/show/hide statements)
+                        'texture',      # contains the overlay effects
+                        'transient',    # contains default UI functions 
+                        'screens',      # screen system (default of ren'py, contains elements like textbox, choices and screens)
+                        'overlay']      # default of ren'py
+
 
 ## Build configuration #########################################################
 ##
