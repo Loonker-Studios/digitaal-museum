@@ -14,6 +14,7 @@ define speler = Character("Bezoeker")
 
 label start:
     # jump monogroom
-    jump test
+    jump glitch_art_animation
+    # jump test
 
     return
