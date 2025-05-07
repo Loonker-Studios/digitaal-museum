@@ -170,6 +170,16 @@ define config.layers = ['master',       # contains the background art, sprite ar
 
 init python:
 
+    ## setup fonts
+    style.schrijver_text = Style(style.say_dialogue)
+    style.schrijver_text.font = "fonts/montez.regular.ttf"
+    style.schrijver_text.size = 48
+
+    ## setup fonts
+    style.intercom_text = Style(style.say_dialogue)
+    style.intercom_text.font = "fonts/medodica.regular.otf"
+    style.intercom_text.size = 50
+
     ## The following functions take file patterns. File patterns are case-
     ## insensitive, and matched against the path relative to the base directory,
     ## with and without a leading /. If multiple patterns match, the first is

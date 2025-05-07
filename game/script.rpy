@@ -9,8 +9,8 @@ define natalie = Character(natalie_data.name)
 
 define speler = Character("Bezoeker")
 define medewerkster = Character("Medewerkster")
-define intercom = Character("Intercom stem")
-define schrijver = Character("Schrijver")
+define intercom = Character("Intercom stem", what_style = "intercom_text")
+define schrijver = Character("Schrijver", what_style = "schrijver_text")
 define stanley = Character("Schrijver (Stanley)")
 
 # The game starts here.
