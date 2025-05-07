@@ -176,7 +176,7 @@ label wouter_parable:
     with dissolve
 
     schrijver "Hey Intercom stem, let nu is op. Het is normaal jou taak van mensen uitleg te geven."
-    Intercom """
+    intercom """
     Ja ja, zal de uitleg wel doen.
 
     Urhm.
@@ -257,7 +257,8 @@ label wouter_parable:
 
     sasha "Huh? Wat?" with vpunch
     
-    show lena casual glaring at left
+    show sasha at darken
+    show lena casual glaring at right
     with dissolve
 
     lena "Maak je niet druk, het is maar een verhaaltje."
@@ -304,7 +305,7 @@ label wouter_parable:
     """
 
     scene bg wouter parable
-    show image "wall_glitch" onlayer texture:
+    show image "wall_glitch":
         alpha 0.1
         linear 0.5 alpha 0.8
     with dissolve
@@ -330,6 +331,7 @@ label wouter_parable:
 
     speler "..."
     "Ik kijk rond. Ik sta voor een paar bekende deuren."
+    speler "'The Wouter Parable’ (‘Het Wouter Fabeltje’)?"
 
     show esther casual idle at right
     with dissolve

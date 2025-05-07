@@ -11,15 +11,15 @@ define speler = Character("Bezoeker")
 define medewerkster = Character("Medewerkster")
 define intercom = Character("Intercom stem")
 define schrijver = Character("Schrijver")
-define stanly = Character("Stanley (Schrijver)")
+define stanley = Character("Schrijver (Stanley)")
 
 # The game starts here.
 
 label start:
     # jump monogroom
-    jump glitch_art_animation
+    # jump glitch_art_animation
     
-    # jump wouter_parable
+    jump wouter_parable
 
 
     # jump test
