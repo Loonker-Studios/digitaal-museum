@@ -1609,26 +1609,3 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
-
-
-screen inactivity_timer():
-
-    if persistent.inactivity_timer_remaining is not None:
-
-        # Tick down every second
-        timer 1.0 repeat True action Function(decrease_timer)
-
-        # TODO remove debug statement
-        # Debug text (optional)
-        text "[persistent.inactivity_timer_remaining] s" xpos 10 ypos 10 color "#fff"
-
-        # Catch all clicks / touches
-        mousearea:
-            hovered Function(reset_inactivity_timer)
-
-        # Catch all key presses (non-modifiers)
-        key "K_RETURN" action Function(reset_inactivity_timer)
-        key "K_SPACE" action Function(reset_inactivity_timer)
-        key "K_ESCAPE" action Function(reset_inactivity_timer)
-        key "mouseup_1" action Function(reset_inactivity_timer)
-        key "mouseup_3" action Function(reset_inactivity_timer)
