@@ -248,6 +248,7 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
+            ## TODO disable menu options
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
