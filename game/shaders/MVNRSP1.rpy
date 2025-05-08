@@ -426,10 +426,3 @@ init python:
         vertex_200="",
         fragment_200=mangaStyleShader)
 
-
-
-
-
-
-
-
