@@ -170,6 +170,9 @@ define config.layers = ['master',       # contains the background art, sprite ar
 
 init python:
 
+    ## setup time-out timer
+    config.overlay_screens.append("inactivity_timer")
+
     ## setup fonts
     style.schrijver_text = Style(style.say_dialogue)
     style.schrijver_text.font = "fonts/montez.regular.ttf"
