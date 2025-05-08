@@ -2,8 +2,6 @@
 #############################
 image bg black = "#000"
 
-image bg wouter parable door =  "#ff8e8e" # TEMP
-
 image bg glitch-art animation:
     "images/background/bg glitch-animation 1.png" with Dissolve(1)
     1
