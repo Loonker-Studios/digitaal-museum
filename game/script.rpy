@@ -16,7 +16,6 @@ define stanley = Character("Schrijver (Stanley)")
 # The game starts here.
 
 label start:
-    $ reset_inactivity_timer()
     # jump monogroom
     # jump glitch_art_animation
     
