@@ -57,16 +57,14 @@ init python:
             renpy.full_restart()
 
 label start:
+    # Start timer
     show screen inactivity_timer
 
     # jump monogroom
     # jump glitch_art_animation
-    
-    jump wouter_parable
+    # jump wouter_parable
 
-    # Use the `ui` system to listen for key/mouse events
-
-
+    jump japanse_tuin_galerij
 
     # jump test
 
