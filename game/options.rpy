@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "0.2.0"
+define config.version = "0.3.0"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -46,9 +46,9 @@ define build.name = "digitaalmuseum"
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.
 
-define config.has_sound = True
-define config.has_music = True
-define config.has_voice = True
+define config.has_sound = False
+define config.has_music = False
+define config.has_voice = False
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -73,8 +73,8 @@ define config.has_voice = True
 
 ## Entering or exiting the game menu.
 
-define config.enter_transition = dissolve
-define config.exit_transition = dissolve
+define config.enter_transition = fade
+define config.exit_transition = fade
 
 
 ## Between screens of the game menu.
@@ -89,7 +89,7 @@ define config.after_load_transition = None
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = fade
 
 
 ## A variable to set the transition used when the game starts does not exist.
