@@ -12,11 +12,11 @@ define medewerkster = Character("Medewerkster")
 define intercom = Character("Intercom stem", what_style = "intercom_text")
 define schrijver = Character("Schrijver", what_style = "schrijver_text")
 define stanley = Character("Schrijver (Stanley)")
-define verlosser = Character("De Verlosser")
+define verlosser = Character("De Verlosser", what_style = "verlosser_text")
 
 label start:
     # Start timer
-    # show screen inactivity_timer
+    show screen inactivity_timer
 
     # jump monogroom
     # jump glitch_art_animation

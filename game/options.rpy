@@ -169,7 +169,6 @@ define config.layers = ['master',       # contains the background art, sprite ar
 ## This section controls how Ren'Py turns your project into distribution files.
 
 init python:
-
     ## setup fonts
     style.schrijver_text = Style(style.say_dialogue)
     style.schrijver_text.font = "fonts/montez.regular.ttf"
@@ -179,6 +178,11 @@ init python:
     style.intercom_text = Style(style.say_dialogue)
     style.intercom_text.font = "fonts/medodica.regular.otf"
     style.intercom_text.size = 50
+
+    ## setup fonts
+    style.verlosser_text = Style(style.say_dialogue)
+    style.verlosser_text.font = "fonts/alice_in_wonderland.ttf"
+    style.verlosser_text.size = 48
 
     ## The following functions take file patterns. File patterns are case-
     ## insensitive, and matched against the path relative to the base directory,
