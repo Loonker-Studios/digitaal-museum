@@ -5,25 +5,25 @@ init python:
 
 
     colorOperations ="""
-    uniform vec4 u_color;
+        uniform vec4 u_color;
     """
     intensityOperations ="""
-    uniform float u_intensity;
+        uniform float u_intensity;
     """
     toggleMode = """
-    uniform float u_mode;
+        uniform float u_mode;
     """
    
     commonVars ="""
-    uniform float u_lod_bias;
-    //Commonly used variables in nearly all shaders.
-    uniform sampler2D tex0;
-    uniform float u_time;
-    varying vec2 v_tex_coord;
+        uniform float u_lod_bias;
+        //Commonly used variables in nearly all shaders.
+        uniform sampler2D tex0;
+        uniform float u_time;
+        varying vec2 v_tex_coord;
     """
    
     aberrationVars="""
-    uniform float u_aberrationAmount;
+        uniform float u_aberrationAmount;
     """
 
 
@@ -42,85 +42,83 @@ init python:
     """
 
     perlinShaderVars = """
-    //Perlin Variables here
-    uniform float u_warpIntensity;
-    uniform float u_flipIntensity;
-    uniform float u_speed;
-    uniform float u_scale;
-    uniform float u_flipScale;
-    uniform float u_flipSpeed;
-    uniform float u_fps;
-    uniform float u_minSmooth;
-    uniform float u_maxSmooth;
+        //Perlin Variables here
+        uniform float u_warpIntensity;
+        uniform float u_flipIntensity;
+        uniform float u_speed;
+        uniform float u_scale;
+        uniform float u_flipScale;
+        uniform float u_flipSpeed;
+        uniform float u_fps;
+        uniform float u_minSmooth;
+        uniform float u_maxSmooth;
     """
 
 # Functions Section
 
     hsvFunctions = """
-    vec3 rgb2hsv(vec3 c) {
-    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
-    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
-    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+        vec3 rgb2hsv(vec3 c) {
+        vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+        vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+        vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
 
 
-    float d = q.x - min(q.w, q.y);
-    float e = 1.0e-10;
-    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
-    }
+        float d = q.x - min(q.w, q.y);
+        float e = 1.0e-10;
+        return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+        }
 
 
-    vec3 hsv2rgb(vec3 c) {
-    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
-    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
-    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
-    }
+        vec3 hsv2rgb(vec3 c) {
+        vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+        vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+        return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+        }
     """
 
     perlinFunctions = """
-    //Perlin Noise functions here
-     float rand(vec2 c)
-    {
-        return fract(sin(dot(c.xy, vec2(12.9898, 78.233))) *
-                        43758.5453123);
-    }
+        //Perlin Noise functions here
+        float rand(vec2 c)
+        {
+            return fract(sin(dot(c.xy, vec2(12.9898, 78.233))) *
+                            43758.5453123);
+        }
 
-    float Perlin(vec2 x)
-    {  
-        vec2 index = floor(x);
-        vec2 fractal = fract(x);
-        //Points
-        float a = rand(index);
-        float b = rand(index + vec2(1.0, 0.0));
-        float c = rand(index + vec2(0.0, 1.0));
-        float d = rand(index + vec2(1.0, 1.0));
-        //This is really just Smooth Stepping, but people say this way is more performative.
-        vec2 blur = fractal * fractal * (3.0 - 2.0 * fractal);
-        return mix(a, b, blur.x) +
-            (c - a) * blur.y * (1.0 - blur.x) +
-            (d - b) * blur.x * blur.y;
-    }
-
-
-    vec2 Noise2D(vec2 uv, float frame)
-    {
-        //Create Fractal Brownian Motion using Perlin noise generation
-        //https://thebookofshaders.com/13/ is a great article on the method.
-        //Frame isn't really accurate as a term, but it's consistent with our naming below.
-        //It's really a function of the current frame multiplied against the designated speed.
+        float Perlin(vec2 x)
+        {  
+            vec2 index = floor(x);
+            vec2 fractal = fract(x);
+            //Points
+            float a = rand(index);
+            float b = rand(index + vec2(1.0, 0.0));
+            float c = rand(index + vec2(0.0, 1.0));
+            float d = rand(index + vec2(1.0, 1.0));
+            //This is really just Smooth Stepping, but people say this way is more performative.
+            vec2 blur = fractal * fractal * (3.0 - 2.0 * fractal);
+            return mix(a, b, blur.x) +
+                (c - a) * blur.y * (1.0 - blur.x) +
+                (d - b) * blur.x * blur.y;
+        }
 
 
-        vec2 q = vec2(0);
-        q.x = Perlin(uv);
-        q.y = Perlin(uv + 1);
+        vec2 Noise2D(vec2 uv, float frame)
+        {
+            //Create Fractal Brownian Motion using Perlin noise generation
+            //https://thebookofshaders.com/13/ is a great article on the method.
+            //Frame isn't really accurate as a term, but it's consistent with our naming below.
+            //It's really a function of the current frame multiplied against the designated speed.
 
 
-        vec2 r = vec2(0);
-        r.x = Perlin( uv + 1.0*q + vec2(1.7,9.2)+ 0.15 * frame );
-        r.y = Perlin( uv + 1.0*q + vec2(8.3,2.8)+ 0.126 * frame);
-        return clamp(r, 0, 1);
-    }
+            vec2 q = vec2(0);
+            q.x = Perlin(uv);
+            q.y = Perlin(uv + 1);
 
 
+            vec2 r = vec2(0);
+            r.x = Perlin( uv + 1.0*q + vec2(1.7,9.2)+ 0.15 * frame );
+            r.y = Perlin( uv + 1.0*q + vec2(8.3,2.8)+ 0.126 * frame);
+            return clamp(r, 0, 1);
+        }
     """
 
 
@@ -162,8 +160,6 @@ init python:
 
 
         gl_FragColor = vec4(red.r, green.g, blue.b, alpha.a);
-
-
     """
    
     colorDepth16Shader="""
@@ -174,7 +170,7 @@ init python:
         color += vec4(0.125,0.125,0.125, 0);
         color.rgb = floor(color.rgb * 8) / 8;
         gl_FragColor = color;
-   """
+    """
 
 
     colorDepth256Shader="""
@@ -255,107 +251,108 @@ init python:
 
 
     warpFragmentShader = """
+
+        float frame = floor(u_time * (u_fps));
+        vec2 uv = v_tex_coord.st;
+        vec2 distort = Noise2D(uv * u_scale, frame * u_speed);
+        distort = distort * 2 - 1; 
+        distort = smoothstep(u_minSmooth, u_maxSmooth, distort);  
+        vec2 invertDistort = Noise2D(uv * u_flipScale, frame * u_flipSpeed);
     
-    float frame = floor(u_time * (u_fps));
-    vec2 uv = v_tex_coord.st;
-    vec2 distort = Noise2D(uv * u_scale, frame * u_speed);
-    distort = distort * 2 - 1; 
-    distort = smoothstep(u_minSmooth, u_maxSmooth, distort);  
-    vec2 invertDistort = Noise2D(uv * u_flipScale, frame * u_flipSpeed);
-   
-    //This makes the effect invert itself every other frame, creating the edge adjustments.
-    //Thanks Endiment for the assist on optimizing this!
-    float frameMod = step(mod(frame, 2), 0.01);
-    invertDistort = (invertDistort * (1-frameMod)) + ((1-invertDistort) * frameMod);
-   
-    //Also centered, should probably just consider making a centered UV for the noise effect.
-    invertDistort = invertDistort * 2. - 1.;  
-    //Deliberately did NOT smooth the invert to keep its jagged edges.
-   
-    //The dampening needs to be fairly severe based on the normal Perlin noise calculations.
-    //We converted them into intensity variables to make them more accessible to manage for script writers.
-    vec2 distortedUV = uv + distort * (u_warpIntensity * 0.0001) + invertDistort * (u_flipIntensity * 0.0001);
-   
+        //This makes the effect invert itself every other frame, creating the edge adjustments.
+        //Thanks Endiment for the assist on optimizing this!
+        float frameMod = step(mod(frame, 2), 0.01);
+        invertDistort = (invertDistort * (1-frameMod)) + ((1-invertDistort) * frameMod);
+    
+        //Also centered, should probably just consider making a centered UV for the noise effect.
+        invertDistort = invertDistort * 2. - 1.;  
+        //Deliberately did NOT smooth the invert to keep its jagged edges.
+    
+        //The dampening needs to be fairly severe based on the normal Perlin noise calculations.
+        //We converted them into intensity variables to make them more accessible to manage for script writers.
+        vec2 distortedUV = uv + distort * (u_warpIntensity * 0.0001) + invertDistort * (u_flipIntensity * 0.0001);
+    
 
-    vec4 color = texture2D(tex0, distortedUV, u_lod_bias);
-    //Uncomment to visualize the noise using the provided settings.
-    //color = vec4(1,1,1,1); // White
-    //vec3 biLamp = vec3(distort.x * 0.2 + 0.5, 0, distort.y * 0.2 + 0.5);
-    //color.rgb *= mix(vec3(1.), biLamp, 1);
-   
-    //Uncomment to visualize the inverted noise using the provided settings
-    //This produces rapid flashing, so uncomment with caution.
-    //color = vec4(1,1,1,1); //White
-    //vec3 lavaLamp = vec3(invertDistort.x * 0.2 + 0.5, invertDistort.y * 0.2 + 0.5, 1);
-    //color.rgb *= mix(vec3(1.), lavaLamp, 1);
+        vec4 color = texture2D(tex0, distortedUV, u_lod_bias);
+        //Uncomment to visualize the noise using the provided settings.
+        //color = vec4(1,1,1,1); // White
+        //vec3 biLamp = vec3(distort.x * 0.2 + 0.5, 0, distort.y * 0.2 + 0.5);
+        //color.rgb *= mix(vec3(1.), biLamp, 1);
+    
+        //Uncomment to visualize the inverted noise using the provided settings
+        //This produces rapid flashing, so uncomment with caution.
+        //color = vec4(1,1,1,1); //White
+        //vec3 lavaLamp = vec3(invertDistort.x * 0.2 + 0.5, invertDistort.y * 0.2 + 0.5, 1);
+        //color.rgb *= mix(vec3(1.), lavaLamp, 1);
 
 
-    gl_FragColor = color;
+        gl_FragColor = color;
     """
 
 
     TakeOnMeFragmentShader = """
-    //Fragment Shader Code here.
+        //Fragment Shader Code here.
 
 
-    //Set the rate of change for this effect.
-    float frame = floor(u_time * (u_fps));
-   
-    //Get coordinates between 0 and 1
-    vec2 uv = v_tex_coord.st;
+        //Set the rate of change for this effect.
+        float frame = floor(u_time * (u_fps));
+    
+        //Get coordinates between 0 and 1
+        vec2 uv = v_tex_coord.st;
 
 
-    //Create Distortion using Perlin Noise
-    vec2 distort = Noise2D(uv * u_scale, frame * u_speed);
+        //Create Distortion using Perlin Noise
+        vec2 distort = Noise2D(uv * u_scale, frame * u_speed);
 
 
-    //Center the effect.  
-    //Probably should consider centering the UV instead of this, but it works as is.
-    distort = distort * 2 - 1;
-   
-    //Smoothing to help remove hard edges from the main warp.
-    distort = smoothstep(u_minSmooth, u_maxSmooth, distort);  
-   
-    //Create another distortion to create bouncing edges.
-    vec2 invertDistort = Noise2D(uv * u_flipScale, frame * u_flipSpeed);
-   
-    //This makes the effect invert itself every other frame, creating the edge adjustments.
-    //Thanks Endiment for the assist on optimizing this!
-    float frameMod = step(mod(frame, 2), 0.01);
-    invertDistort = (invertDistort * (1-frameMod)) + ((1-invertDistort) * frameMod);
-   
-    //Also centered, should probably just consider making a centered UV for the noise effect.
-    invertDistort = invertDistort * 2. - 1.;  
-    //Deliberately did NOT smooth the invert to keep its jagged edges.
-   
-    //The dampening needs to be fairly severe based on the normal Perlin noise calculations.
-    //We converted them into intensity variables to make them more accessible to manage for script writers.
-    vec2 distortedUV = uv + distort * (u_warpIntensity * 0.0001) + invertDistort * (u_flipIntensity * 0.0001);
-   
+        //Center the effect.  
+        //Probably should consider centering the UV instead of this, but it works as is.
+        distort = distort * 2 - 1;
+    
+        //Smoothing to help remove hard edges from the main warp.
+        distort = smoothstep(u_minSmooth, u_maxSmooth, distort);  
+    
+        //Create another distortion to create bouncing edges.
+        vec2 invertDistort = Noise2D(uv * u_flipScale, frame * u_flipSpeed);
+    
+        //This makes the effect invert itself every other frame, creating the edge adjustments.
+        //Thanks Endiment for the assist on optimizing this!
+        float frameMod = step(mod(frame, 2), 0.01);
+        invertDistort = (invertDistort * (1-frameMod)) + ((1-invertDistort) * frameMod);
+    
+        //Also centered, should probably just consider making a centered UV for the noise effect.
+        invertDistort = invertDistort * 2. - 1.;  
+        //Deliberately did NOT smooth the invert to keep its jagged edges.
+    
+        //The dampening needs to be fairly severe based on the normal Perlin noise calculations.
+        //We converted them into intensity variables to make them more accessible to manage for script writers.
+        vec2 distortedUV = uv + distort * (u_warpIntensity * 0.0001) + invertDistort * (u_flipIntensity * 0.0001);
+    
 
 
-    vec4 color = texture2D(tex0, distortedUV, u_lod_bias);
-    //Uncomment to visualize the noise using the provided settings.
-    //color = vec4(1,1,1,1); // White
-    //vec3 biLamp = vec3(distort.x * 0.2 + 0.5, 0, distort.y * 0.2 + 0.5);
-    //color.rgb *= mix(vec3(1.), biLamp, 1);
-   
-    //Uncomment to visualize the inverted noise using the provided settings
-    //This produces rapid flashing, so uncomment with caution.
-    //color = vec4(1,1,1,1); //White
-    //vec3 lavaLamp = vec3(invertDistort.x * 0.2 + 0.5, invertDistort.y * 0.2 + 0.5, 1);
-    //color.rgb *= mix(vec3(1.), lavaLamp, 1);
-   
-    if (color.a == 0.0) discard;
-    vec3 hsv = rgb2hsv(color.rgb);
+        vec4 color = texture2D(tex0, distortedUV, u_lod_bias);
+        //Uncomment to visualize the noise using the provided settings.
+        //color = vec4(1,1,1,1); // White
+        //vec3 biLamp = vec3(distort.x * 0.2 + 0.5, 0, distort.y * 0.2 + 0.5);
+        //color.rgb *= mix(vec3(1.), biLamp, 1);
+    
+        //Uncomment to visualize the inverted noise using the provided settings
+        //This produces rapid flashing, so uncomment with caution.
+        //color = vec4(1,1,1,1); //White
+        //vec3 lavaLamp = vec3(invertDistort.x * 0.2 + 0.5, invertDistort.y * 0.2 + 0.5, 1);
+        //color.rgb *= mix(vec3(1.), lavaLamp, 1);
+    
+        if (color.a == 0.0) discard;
+        vec3 hsv = rgb2hsv(color.rgb);
 
 
-    if (hsv.z < u_intensity || hsv.y < 0.0025) {  // Adjust the thresholds as needed
-        color *= vec4(0.01,0.01,0.01,1.0);
-    } else {
-    color= u_color; //Set fill color to the supplied color
-}
-    gl_FragColor = color;
+        if (hsv.z < u_intensity || hsv.y < 0.0025) {  // Adjust the thresholds as needed
+            color *= vec4(0.01,0.01,0.01,1.0);
+        } else {
+            color= u_color; //Set fill color to the supplied color
+        }
+
+        gl_FragColor = color;
     """
 
 
@@ -428,11 +425,4 @@ init python:
         fragment_functions=hsvFunctions,
         vertex_200="",
         fragment_200=mangaStyleShader)
-
-
-
-
-
-
-
 
