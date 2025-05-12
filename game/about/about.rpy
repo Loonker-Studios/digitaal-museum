@@ -6,7 +6,7 @@ define gui.about = _p("""
 
     Mijn naam is Sam Van Lier (burned_music op instagram).  
 
-    Ik heb dit project gemaakt met de intentie om een andere ervaring te geven aan het typische "museumbezoek”. Of ik daar in geslaagd ben is aan jou mijn beste speler.
+    Ik heb dit project gemaakt met de intentie om een andere ervaring te geven aan het typische "museumbezoek”.
 
     Eventjes terug naar het spel. Toen ik dit idee begon uit te werken werd het snel duidelijk dat ik hulp nodig ging hebben.
     

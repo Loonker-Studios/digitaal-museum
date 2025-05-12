@@ -115,4 +115,4 @@ label verlosser:
     scene bg verlosser with fade
 
     "Misschien liet ik men verbeelding wat te vergaan. Maar toch, het voelde zo echt."
-    speler "Is dit de kracht van kunst?"
+    speler "Dat is de kracht van kunst zeker?"

@@ -3,6 +3,7 @@
 ### TODO setup all backgound effects
 #### 1. If transforms need to be applied to an image, it needs to be done in a separate image (see verlosser_animated)
 #### 2. Transitions are allowed (see example)
+#### 3. make different loops for different builds
 
 
 image verlosser_animated:
