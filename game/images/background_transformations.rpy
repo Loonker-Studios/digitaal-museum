@@ -1,5 +1,10 @@
 define config.gl2 = True  # Enables OpenGL for smoother transitions (optional)
 
+transform zoom_for_pan:
+    zoom 1.2
+    yalign 0.5
+    xalign 0.0
+
 transform pan_zoom:
     xalign 0.0  # Anchor to the left side of the screen
     yalign 0.5
