@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Den Digitale zen Museum")
+define config.name = _("Het Digitaal Museum")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "0.3.0"
+define config.version = "0.3.1"
 
 
 ## A short name for the game used for executables and directories in the built
@@ -130,7 +130,7 @@ default preferences.afm_time = 15
 ## Windows: %APPDATA\RenPy\<config.save_directory>
 ##
 ## Macintosh: $HOME/Library/RenPy/<config.save_directory>
-##
+##`
 ## Linux: $HOME/.renpy/<config.save_directory>
 ##
 ## This generally should not be changed, and if it is, should always be a
