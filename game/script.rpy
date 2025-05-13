@@ -19,6 +19,8 @@ label start:
     # Start timer
     show screen inactivity_timer
 
+    call intro
+
     # Start actual game
     if room == "POC":
         jump monogroom
