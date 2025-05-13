@@ -13,7 +13,7 @@ define schrijver = Character("Schrijver", what_style = "schrijver_text")
 define stanley = Character("Schrijver (Stanley)")
 define verlosser = Character("De Verlosser", what_style = "verlosser_text")
 
-define room = "glitch-art-animation"
+define room = "verlosser"
 
 label start:
     # Start timer

@@ -317,7 +317,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("Over Artist") action ShowMenu("gallery")
+        textbutton _("Galerij") action ShowMenu("gallery")
         textbutton _("Nawoord") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
