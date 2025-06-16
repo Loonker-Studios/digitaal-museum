@@ -4,7 +4,7 @@ Copyright (c) 2025 Loonker Studios
 
 The visual, audio, and other non-code assets in this repository (including but not limited to character sprites, backgrounds, CGs, music, sound effects, and UI elements) are NOT licensed under the MIT License.
 
-These assets are provided for use exclusively within the context of this project,and may not be reused, redistributed, modified, or incorporated into any other project—commercial or non-commercial—without explicit written permission from the copyright holder.
+These assets are provided for use exclusively within the context of this project,and may not be reused, redistributed, modified, or incorporated into any other project, commercial or non-commercial, without explicit written permission from the copyright holder.
 
 In particular:
 - The assets may not be used to train machine learning or AI models.
