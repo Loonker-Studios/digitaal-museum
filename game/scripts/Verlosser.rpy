@@ -116,3 +116,6 @@ label verlosser:
 
     "Misschien liet ik men verbeelding wat te vergaan. Maar toch, het voelde zo echt."
     speler "Dat is de kracht van kunst zeker?"
+
+    pause .5
+    jump choose_room

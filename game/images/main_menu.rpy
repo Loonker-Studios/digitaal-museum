@@ -5,6 +5,18 @@
 #### 2. Transitions are allowed (see example)
 #### 3. make different loops for different builds
 
+init python:
+    import random
+
+    main_menu_backgrounds = [
+        "wouter_parable",
+        "POC",
+        "glitch-art-animation",
+        "japanse_tuin",
+        "verlosser"
+    ]
+
+    selected_main_menu_bg = random.choice(main_menu_backgrounds)
 
 image verlosser_animated:
     "bg verlosser"
@@ -116,9 +128,9 @@ image verlosser_menu:
     repeat
 
 image bg main_menu = ConditionSwitch(
-    "room == \"wouter_parable\"", "wouter_parable_menu",
-    "room == \"POC\"", "poc_main_menu",
-    "room == \"glitch-art-animation\"", "glitch_art_animation_menu",
-    "room == \"japanse_tuin\"", "japanse_tuin_menu",
-    "room == \"verlosser\"", "verlosser_menu"
+    "selected_main_menu_bg == \"wouter_parable\"", "wouter_parable_menu",
+    "selected_main_menu_bg == \"POC\"", "poc_main_menu",
+    "selected_main_menu_bg == \"glitch-art-animation\"", "glitch_art_animation_menu",
+    "selected_main_menu_bg == \"japanse_tuin\"", "japanse_tuin_menu",
+    "selected_main_menu_bg == \"verlosser\"", "verlosser_menu"
 )

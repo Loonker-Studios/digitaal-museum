@@ -76,7 +76,7 @@ screen gallery():
             label "Gallerij overzicht"
 
             for entry in gallery_entries:
-                if room == entry["id"]:
+                if entry["id"] in visited_rooms:
                     vbox:
                         spacing 10
                         add Solid(gui.accent_color, xsize=gui.width, ysize=3) xalign 0.5

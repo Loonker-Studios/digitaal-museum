@@ -13,24 +13,40 @@ define schrijver = Character("Schrijver", what_style = "schrijver_text")
 define stanley = Character("Schrijver (Stanley)")
 define verlosser = Character("De Verlosser", what_style = "verlosser_text")
 
-define room = "verlosser"
+define rooms = [
+    {
+        "id": "POC",
+        "message": "Zaal: Burned_Music",
+        "visited": False,
+        "label": "monogroom"
+    },
+    {
+        "id": "glitch-art-animation",
+        "message": "Zaal: Glitch Art",
+        "visited": False,
+        "label": "glitch_art_animation"
+    },
+    {
+        "id": "wouter_parable",
+        "message": "Zaal: The Wouter Parable",
+        "visited": False,
+        "label": "wouter_parable"
+    },
+    {
+        "id": "japanse_tuin",
+        "message": "Zaal: Japan",
+        "visited": False,
+        "label": "japanse_tuin_galerij"
+    },
+    {
+        "id": "verlosser",
+        "message": "Zaal: De Verlosser",
+        "visited": False,
+        "label": "verlosser"
+    }
+]
+
+define visited_rooms = []
 
 label start:
-    # Start timer
-    show screen inactivity_timer
-
-    call intro
-
-    # Start actual game
-    if room == "POC":
-        jump monogroom
-    elif room == "glitch-art-animation":
-        jump glitch_art_animation
-    elif room == "wouter_parable":
-        jump wouter_parable
-    elif room == "japanse_tuin":
-        jump japanse_tuin_galerij
-    elif room == "verlosser":
-        jump verlosser
-
-    return
+    jump intro

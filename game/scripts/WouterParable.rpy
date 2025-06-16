@@ -36,7 +36,9 @@ label wouter_parable:
             medewerkster "Geen probleem. Straks is er terug een vertooning dat u kunt bijwonen."
             speler "Bedankt."
             "Ik geef de medewerkster een glimlach en ga door naar een ander deel van het museum."
-            return
+            pause .5
+            jump choose_room
+
         "Binnen gaan":
             hide esther with dissolve
             "Ik wandel me naar binnen, de donkere kamer in."
@@ -304,7 +306,7 @@ label wouter_parable:
     .{w=.3}.{w=.3}.{w=.3}.{w=.3}.{w=.3}.{w=.3}.{w=.3}.{w=.3}
     """
 
-    scene bg wouter parable
+    scene bg wouter parable wide
     show image "wall_glitch":
         alpha 0.1
         linear 0.5 alpha 0.8
@@ -347,4 +349,5 @@ label wouter_parable:
     medewerkster "Oke, fijne dag nog."
     "Ze geeft me een vriendelijke glimlach terwijl ik verder wandel naar het volgende deel van de expositie."
 
-    return
+    pause .5
+    jump choose_room

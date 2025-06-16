@@ -294,3 +294,6 @@ label glitch_art_animation_b:
     """Ik kijk nog eventjes naar het werk.
 
     {i}Misschien kan het toch bewegen. Wie weet...{/i}"""
+
+    pause .5
+    jump choose_room

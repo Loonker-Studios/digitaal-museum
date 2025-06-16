@@ -198,5 +198,5 @@ label japanse_tuin_tuin:
 
     speler "Misschien moet ik zelf eens iets maken, kan wel is tof zijn."
 
-
-
+    pause .5
+    jump choose_room

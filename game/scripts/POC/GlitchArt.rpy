@@ -26,7 +26,8 @@ label glitch_art_1_6:
         "Ja, nu je het zegt... Je heb mogelijks wel gelijk.":
             call glitch_art_1_6_b from _call_glitch_art_1_6_b
 
-    return
+    pause .5
+    jump choose_room
 
 label glitch_art_1_6_a:
     show lena casual disgusted 

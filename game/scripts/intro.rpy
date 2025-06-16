@@ -26,7 +26,7 @@ label intro:
 
     medewerkster "Ik wens je veel plezier met je bezoek."
 
-    scene bg black with fade
-    pause .5
+    hide teresa
 
-        
+    jump choose_room
+    
