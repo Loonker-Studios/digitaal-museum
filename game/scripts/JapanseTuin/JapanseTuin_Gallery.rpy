@@ -20,6 +20,8 @@ label japanse_tuin_galerij:
     \nZe zitten in glazen kaders die in de lucht hangen. Zo te zien door heel fijne staaldraad."
     speler "Japans papier?"
 
+    scene bg tuin gallerij wide-shot with dissolve
+    pause 0.5
     show valerie casual idle at right
     with dissolve
 

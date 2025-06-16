@@ -105,7 +105,7 @@ label japanse_tuin_tuin:
 
     valerie "Kom laten we het andere werk bekijken."
 
-    hide valerie with moveoutright
+    hide valerie with dissolve
 
     """
     Ze wandelt rustig verder.

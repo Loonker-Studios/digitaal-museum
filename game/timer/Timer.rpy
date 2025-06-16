@@ -24,8 +24,15 @@ screen inactivity_timer():
     # Catch any key press to reset timer
     key "mouseup_1" action [Function(reset_inactivity_timer), Return()]
     key "mouseup_2" action [Function(reset_inactivity_timer), Return()]
+    key "mouseup_3" action [Function(reset_inactivity_timer), Return()]
+    key "mousedown_4" action []
+    key "mousedown_5" action []
+
     key "K_RETURN" action [Function(reset_inactivity_timer), Return()]
     key "K_SPACE" action [Function(reset_inactivity_timer), Return()]
+    key "K_ESCAPE" action []
+    key "K_TAB" action []
+    key "K_s" action []
 
     # Debug display of timer — top-right corner, with styling
     frame:
